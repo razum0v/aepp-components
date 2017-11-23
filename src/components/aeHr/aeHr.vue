@@ -14,8 +14,8 @@
   @import "../variables";
 
   .ae-hr {
-    background-color: $smoke;
-    height: 2px;
+    background-color: $silver;
+    height: 1px;
     margin: 20px 0;
     border: none;
 
