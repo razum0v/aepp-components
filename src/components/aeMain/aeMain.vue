@@ -46,7 +46,7 @@
     cursor: pointer;
   }
 
-  input, input[type=text] {
+  input, input[type=text], select {
     -webkit-appearance: none;
   }
 
