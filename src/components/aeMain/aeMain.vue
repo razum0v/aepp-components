@@ -47,7 +47,7 @@
   }
 
   input, input[type=text] {
-    appearance: none;
+    -webkit-appearance: none;
   }
 
   textarea {
