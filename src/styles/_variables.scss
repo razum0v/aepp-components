@@ -1,0 +1,35 @@
+$silver: #dcdcdc;
+$smoke: #f5f5f5;
+$dark: #3c3c3c;
+$anthracite: #1e1e1e;
+$white: #ffffff;
+$apricot: #ff96a0;
+$grey: #989898;
+$aubergine: #320a3c;
+$black: #000000;
+$maegenta: #f03c6e;
+$plum: #c69cd0;
+
+$container-width: 880px;
+$screen-phone: 480px;
+
+$normal: $silver;
+$boring: $smoke;
+// $dark: #383838;
+$darker: #1e1e1e;
+$plain: $white;
+$exciting: #311b58;
+$darkest: $black;
+$dramatic: #f7296e;
+
+label {
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: 500;
+ font-style: normal;
+ font-stretch: normal;
+ line-height: 1.14;
+ letter-spacing: 0.2px;
+ text-align: left;
+ color: $darkest;
+}
