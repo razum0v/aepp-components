@@ -65,7 +65,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../variables";
+  @import "./../../styles/variables";
 
   .ae-panel {
     border-radius: 10px;

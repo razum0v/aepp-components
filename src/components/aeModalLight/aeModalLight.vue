@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../variables";
+  @import "./../../styles/variables";
 
   .ae-overlay {
     display: flex;

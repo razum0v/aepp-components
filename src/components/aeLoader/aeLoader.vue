@@ -9,7 +9,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../variables";
+  @import "./../../styles/variables";
 
   @keyframes rotation {
     from { transform: rotate(45deg); }

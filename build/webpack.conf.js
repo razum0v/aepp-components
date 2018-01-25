@@ -4,8 +4,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpackConfig = {
   entry: {
     main: './src/index.js',
-    variables: './src/components/variables.scss',
-    common: './src/components/common.scss',
+    variables: './src/styles/variables.scss',
+    common: './src/styles/common.scss',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -34,7 +34,7 @@ var webpackConfig = {
         loader: 'url-loader',
       }, {
         include: [
-          path.resolve(__dirname, '../src/components/variables.scss'),
+          path.resolve(__dirname, '../src/styles/variables.scss'),
         ],
         loader: 'file-loader',
         options: {
@@ -42,7 +42,7 @@ var webpackConfig = {
         },
       }, {
         include: [
-          path.resolve(__dirname, '../src/components/common.scss'),
+          path.resolve(__dirname, '../src/styles/common.scss'),
         ],
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
       },

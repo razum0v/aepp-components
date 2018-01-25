@@ -12,7 +12,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../variables";
+  @import "./../../styles/variables";
 
   .ae-filter-list {
     margin: 30px 0;

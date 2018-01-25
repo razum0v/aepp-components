@@ -38,6 +38,6 @@ module.exports = {
     }
   },
   require: [
-    path.join(__dirname, 'src/components/common.scss')
+    path.join(__dirname, 'src/styles/common.scss')
   ]
 }

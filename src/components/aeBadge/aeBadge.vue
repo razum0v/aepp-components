@@ -12,7 +12,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../variables";
+  @import "./../../styles/variables";
 
   .ae-badge {
     display: inline-block;
