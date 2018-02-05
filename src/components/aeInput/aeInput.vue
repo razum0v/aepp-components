@@ -57,7 +57,9 @@
           const { address, cursor } = this.formatAddress(value, selectionStart)
           if (address !== value) {
             inputEvent.target.value = address
-            inputEvent.target.setSelectionRange(cursor, cursor)
+            const setSelection = () => inputEvent.target.setSelectionRange(cursor, cursor)
+            setSelection()
+            setTimeout(setSelection, 0)
           }
           this.$emit('input', inputEvent.target.value.replace(/[ \n]/g, ''))
         } else {
