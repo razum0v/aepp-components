@@ -1,7 +1,6 @@
 import { shallow, mount } from 'vue-test-utils'
 import AeAddress from './aeAddress.vue'
 import AeAddressPlugin from './index'
-import AeIdentityAvatar from '../aeIdentityAvatar/aeIdentityAvatar.vue'
 
 describe('AeAddress', () => {
   const address = '0x35d8830ea35e6Df033eEdb6d5045334A4e34f9f9'
@@ -18,7 +17,7 @@ describe('AeAddress', () => {
           showAvatar: true
         },
         stubs: {
-          'ae-identity-avatar': '<div data-identity-avatar></div>',
+          'ae-identity-avatar': '<div data-identity-avatar></div>'
         }
       })
 
@@ -32,7 +31,7 @@ describe('AeAddress', () => {
           showAvatar: false
         },
         stubs: {
-          'ae-identity-avatar': '<div data-identity-avatar></div>',
+          'ae-identity-avatar': '<div data-identity-avatar></div>'
         }
       })
       expect(wrapper.contains('[data-identity-avatar]')).toBe(false)
