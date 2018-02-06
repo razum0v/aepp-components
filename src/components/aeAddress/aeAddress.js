@@ -28,7 +28,7 @@ export default {
     /**
      * Whether to show an avatar in front of the address
      */
-    'show-avatar': {
+    showAvatar: {
       type: Boolean,
       default: false
     },
