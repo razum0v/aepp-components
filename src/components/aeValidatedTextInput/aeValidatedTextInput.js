@@ -1,13 +1,11 @@
 import AeButton from '../aeButton/aeButton.vue'
-import AeTextInput from '../aeTextInput/aeTextInput.vue'
 
 const alwaysValid = () => undefined
 
 export default {
   name: 'ae-validated-text-input',
   components: {
-    AeButton,
-    AeTextInput
+    AeButton
   },
   data () {
     return {
@@ -53,9 +51,6 @@ export default {
       }
 
       return this.errorMessageMap[errorId] || this.errorDefaultMessage
-    },
-    hasError () {
-      return !this.isValid
     }
   },
   methods: {
@@ -101,9 +96,6 @@ export default {
       } else {
         this.validateBlured()
       }
-    },
-    forwardEvent (event) {
-      this.$emit(event.type, event)
     },
     onClearRequest (value) {
       this.$emit('clearRequest', value)

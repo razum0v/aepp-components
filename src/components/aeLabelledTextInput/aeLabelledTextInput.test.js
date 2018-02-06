@@ -3,7 +3,7 @@ import AeTextInputMolecule from './aeLabelledTextInput.vue'
 import AeTextInputMoleculePlugin from './index'
 import AeValidatedTextInput from '../aeValidatedTextInput/aeValidatedTextInput.vue'
 
-describe('AeTextInputMolecule', () => {
+describe('AeLabelledTextInput', () => {
   const createShallowWrapper = (data = {}) => {
     return shallow(AeTextInputMolecule, {
       propsData: data,

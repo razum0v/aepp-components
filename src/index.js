@@ -23,7 +23,6 @@ import AeAppIcon from './components/aeAppIcon'
 import AeIcon from './components/aeIcon'
 import AeAddress from './components/aeAddress'
 import AeAddressInput from './components/aeAddressInput'
-import AeTextInput from './components/aeTextInput'
 import AeDivider from './components/aeDivider'
 
 const AeppComponents = {
@@ -52,7 +51,6 @@ const AeppComponents = {
   AeIcon,
   AeAddress,
   AeAddressInput,
-  AeTextInput,
   AeDivider
 }
 

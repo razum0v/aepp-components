@@ -1,19 +1,15 @@
 <template>
-  <ae-text-input
-    ref="input"
-    :value="internalValue"
-    :inputId="inputId"
-    :hasError="hasError"
-    :placeholder="placeholder"
-    @input="onInput"
-    @blur="onBlur"
-    @focus="onFocus"
-    @keydown = "forwardEvent"
-    @keyup = "forwardEvent"
-    @keypress = "forwardEvent"
-    @clearRequest = "onClearRequest"
-    :maxlength="maxlength"
-  />
+  <div>
+    <slot
+      ref="input"
+      :value="internalValue"
+      :id="inputId"
+      :placeholder="placeholder"
+      @input="onInput"
+      @blur="onBlur"
+      @focus="onFocus"
+    />
+  </div>
 </template>
 <script src="./aeValidatedTextInput.js">
   export {default} from './aeValidatedTextInput'
