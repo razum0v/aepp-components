@@ -10,19 +10,10 @@ export default {
   data () {
     return {
       isValid: undefined,
-      hasFocus: false,
-      internalValue: this.value
+      hasFocus: false
     }
   },
   props: {
-    inputId: {
-      type: [String, Number],
-      default: null
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
     validateOnBlur: {
       type: Function,
       default: alwaysValid
@@ -30,10 +21,6 @@ export default {
     validateOnInput: {
       type: Function,
       default: alwaysValid
-    },
-    value: {
-      type: String,
-      default: ''
     },
     maxlength: {
       type: Number,
@@ -51,15 +38,29 @@ export default {
       }
 
       return this.errorMessageMap[errorId] || this.errorDefaultMessage
+    },
+    inputVM () {
+      const defaultSlot = this.$slots.default
+      if (!defaultSlot || defaultSlot.length === 0) {
+        return null
+      }
+
+      return defaultSlot[0].componentInstance
+    },
+    inputElement () {
+      const root = this.$refs.root
+      return root.querySelector('input, textarea')
     }
   },
   methods: {
-    onBlur (value) {
+    onBlur () {
+      const value = this.inputVM.value
       this.hasFocus = false
       this.validateBlured()
       this.$emit('blur', value)
     },
-    onInput (value) {
+    onInput () {
+      const value = this.inputElement.value
       this.hasFocus = true
       this.internalValue = value
       this.validateFocused()
@@ -71,7 +72,7 @@ export default {
       this.$emit('focus')
     },
     validateFocused () {
-      const value = this.internalValue
+      const value = this.inputElement.value
       const validationResult = this.validateOnInput(value)
       const valid = !validationResult
       this.isValid = valid
@@ -81,7 +82,8 @@ export default {
       )
     },
     validateBlured () {
-      const value = this.internalValue
+      const value = this.inputVM.$props ?
+        this.inputVM.$props.value : this.inputElement.value
       const validationResult = this.validateOnBlur(value)
       const valid = !validationResult
       this.isValid = valid
@@ -102,12 +104,22 @@ export default {
     }
   },
   mounted () {
+    const inputVM = this.inputVM
+    const input = this.inputElement
+    input.addEventListener('focus', this.onFocus.bind(this))
+    input.addEventListener('blur', this.onBlur.bind(this))
+    input.addEventListener('input', this.onInput.bind(this))
+    // inputVM.$on('blur', this.onBlur.bind(this))
+    inputVM.$watch('value', this.validate.bind(this))
     this.isValid = this.validate()
   },
-  watch: {
-    value (val) {
-      this.internalValue = val
-      this.validate()
-    }
+  destroyed () {
+    // try {
+    //   const rootElem = this.$refs.root
+    //   const input = rootElem.querySelector('input, textarea')
+    //   input.removeEventListener('focus', this.onFocus)
+    //   input.removeEventListener('blur', this.onBlur)
+    //   input.removeEventListener('input', this.onInput)
+    // } catch (err) {}
   }
 }

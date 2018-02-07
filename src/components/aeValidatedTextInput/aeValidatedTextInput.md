@@ -7,25 +7,48 @@ new Vue({
  template: `
   <div>
       <ae-validated-text-input
-        placeholder="Test input"
-        :value="inputValue"
-        @clearRequest="onClearRequest"
-        @input="onInput"
         @validation="onValidationResult"
         :validateOnBlur="validate"
         :validateOnInput="validate"
-      />
+      >
+        <ae-input :value="inputValue" placeholder="Test input"/>
+      </ae-validated-text-input>
       <p>{{errMsg}}</p>
   </div>
   `,
   methods: {
-      onClearRequest: function() {
-          this.inputValue = ''
-          console.log('ae-validated-text-input / cleared value')
+      validate(value){
+        const inValid = /\D/.test(value)
+        if(inValid){
+         return 'Only digits are allowed'
+        }
       },
-      onInput: function(value){
-        this.inputValue = value
-      },
+      onValidationResult(result){
+        this.errMsg = typeof result === 'string' ? result : ''
+      }
+  }
+})
+```
+
+```javascript
+new Vue({
+  data:{
+    inputValue: 'Initial value',
+    errMsg:''
+  },
+ template: `
+  <div>
+      <ae-validated-text-input
+        @validation="onValidationResult"
+        :validateOnBlur="validate"
+        :validateOnInput="validate"
+      >
+        <input :value="inputValue" placeholder="Test input"/>
+      </ae-validated-text-input>
+      <p>{{errMsg}}</p>
+  </div>
+  `,
+  methods: {
       validate(value){
         const inValid = /\D/.test(value)
         if(inValid){

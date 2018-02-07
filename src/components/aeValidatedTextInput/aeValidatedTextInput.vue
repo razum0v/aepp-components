@@ -1,13 +1,10 @@
 <template>
-  <div>
+  <div ref="root">
     <slot
       ref="input"
-      :value="internalValue"
       :id="inputId"
       :placeholder="placeholder"
-      @input="onInput"
-      @blur="onBlur"
-      @focus="onFocus"
+
     />
   </div>
 </template>
